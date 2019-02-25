@@ -1,0 +1,11 @@
+Package: interdecis
+Type: Package
+Title: Intercomparison of Reanalyses Datasets
+Version: 0.0.001
+Author: Alexandru Dumitrescu
+Maintainer: Alexandru Dumitresc <alexandru.dumitrescu@gmail.com>
+Description: More about what it does (maybe more than one line)
+    Use four spaces when indenting paragraphs within the Description.
+License: GPL-2 | MIT
+Encoding: UTF-8
+LazyData: true
