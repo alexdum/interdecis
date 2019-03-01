@@ -1,0 +1,25 @@
+---
+output:
+  md_document:
+    variant: markdown_github
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "README-"
+)
+```
+
+
+## Objective of the inter-comparison of selected datasets
+
+ <!-- (i.e. in the table above): to  -->
+
+Document limits and strengths in using these data as alternative data sources for climate indices computation in the absence of observations:
+ 
+- the comparison will focus on differences (and similarities) between selected datasets and the observations (i.e. E-OBS) for the ECV selected in the project (t2m, rh,w10m,pp,radiation);
+- this should help to interpret the differences between the climate indices derived from the selected alternative datasets and those based on observations/ERA5.
