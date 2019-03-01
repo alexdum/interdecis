@@ -1,0 +1,12 @@
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+Objective of the inter-comparison of selected datasets
+------------------------------------------------------
+
+<!-- (i.e. in the table above): to  -->
+
+Document limits and strengths in using these data as alternative data sources for climate indices computation in the absence of observations:
+
+-   the comparison will focus on differences (and similarities) between selected datasets and the observations (i.e. E-OBS) for the ECV selected in the project (t2m, rh,w10m,pp,radiation);
+-   this should help to interpret the differences between the climate indices derived from the selected alternative datasets and those based on observations/ERA5.
+
+Method for comparison of selected datasets and E-OBS: gridpoint dataset vs closest gridpoint in E-OBS.
