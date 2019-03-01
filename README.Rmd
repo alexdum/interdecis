@@ -23,3 +23,6 @@ Document limits and strengths in using these data as alternative data sources fo
  
 - the comparison will focus on differences (and similarities) between selected datasets and the observations (i.e. E-OBS) for the ECV selected in the project (t2m, rh,w10m,pp,radiation);
 - this should help to interpret the differences between the climate indices derived from the selected alternative datasets and those based on observations/ERA5.
+
+Method for comparison of selected datasets and E-OBS: gridpoint dataset vs closest gridpoint in E-OBS.
+
