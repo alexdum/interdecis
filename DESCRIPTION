@@ -9,3 +9,7 @@ Description: More about what it does (maybe more than one line)
 License: GPL-2 | MIT
 Encoding: UTF-8
 LazyData: true
+Imports:
+  raster,
+  sf
+Remotes: github::SantanderMetGroup/R_VALUE
