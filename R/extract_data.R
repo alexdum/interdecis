@@ -1,5 +1,5 @@
 #' Extract values from a raster brick object at the points location
-#' @description Return a data frame  the values of a raster brick object for the cell in which the points fall, and the time steps are stored as Date.
+#' @description Return a data frame with the values of a raster brick object for the cell in which the points fall, and the time steps stored as Date.
 #' @param file the raster brick object
 #' @param points represented by a two column matrix
 #' @param date1 start date for the extracted time serie (e.g. '2014-01-01')
