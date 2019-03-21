@@ -1,14 +1,9 @@
 Package: interdecis
 Type: Package
-Title: Intercomparison of Reanalyses Datasets
-Authors@R: person(given = "Alexandru",
-             family = "Dumitrescu",
-             role = c("aut", "cre"),
-             email = "alexandru.dumitrescu@gmail.com",
-             comment = c(ORCID = "0000-0002-3361-483X")
+Title: Intercomparison Tools of Reanalyses Datasets
+Authors@R: c(person("Alexandru", "Dumitrescu", role = c("aut", "cre"), email = "alexandru.dumitrescu@gmail.com"))
 Maintainer: Alexandru Dumitresc <alexandru.dumitrescu@gmail.com>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Description: Interdecis is an open-source software, stand-alone and designed in R with capabilities to analyse the various climatic datasets performance using as reference E-OBS gridded dataset and ERA5 reanalysis product.
 Version: 0.0.001
 License: GPL-2
 Encoding: UTF-8
@@ -17,5 +12,9 @@ Depends: R (>= 3.0.1)
 Imports:
   raster (>= 2.8-19),
   sf (>= 0.7-3),
-  
-Remotes: github::SantanderMetGroup/R_VALUE (>=1.4.22)
+  tibble (>= 2.1.1)
+Remotes: 
+github::SantanderMetGroup/R_VALUE (>=1.4.22)
+Suggests: knitr, rmarkdown
+VignetteBuilder: knitr
+RoxygenNote: 6.1.1

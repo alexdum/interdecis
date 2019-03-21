@@ -1,0 +1,49 @@
+---
+title: "Reanalysis performances"
+author: "Alexandru Dumitrescu"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
+---
+  
+  ```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+collapse = TRUE,
+comment = "#>"
+)
+```
+
+
+
+## Temperature data
+
+Load EOBS air temperature dataset
+
+```{r t_eobs, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+
+tavg.eobs <- raster::stack(system.file("eobs/tg_ens_mean_0.1deg_reg_2004-2005_v19.0e.nc", package = "interdecisdata"))
+
+```
+
+Load MERA 2m air temperature dataset
+
+```{r t_mera, echo=TRUE, fig.height=4, fig.width=8, message=FALSE, warning=FALSE, paged.print=FALSE}
+tavg.mera <- raster::stack(system.file("mera/mera_t2m_daily_2004_2005.nc", package = "interdecisdata"))
+raster::plot(tavg.mera[[1:2]])
+```
+
+Extract renalysis data to point locations
+
+```{r t_eobs, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+library(interdecis)
+point <- cbind(-8, 52)
+
+tavg.eobs.co <- extract_data(tavg.eobs, point)
+tavg.mera.co <- extract_data(tavg.mera, point)
+
+
+
+```
