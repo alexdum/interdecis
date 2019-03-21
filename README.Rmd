@@ -24,10 +24,10 @@ With the help of the **interdecis** package, it can be documented the limits and
 
 Install development versions from github with:
 
-
+```{r code, eval=FALSE}
 library(devtools) 
 
 install_github("alexdum/interdecis")
-
+```
 
 

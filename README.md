@@ -11,6 +11,8 @@ Installing
 
 Install development versions from github with:
 
-library(devtools)
+``` r
+library(devtools) 
 
-install\_github("alexdum/interdecis")
+install_github("alexdum/interdecis")
+```
