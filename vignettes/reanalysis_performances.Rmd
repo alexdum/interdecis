@@ -50,7 +50,11 @@ Extract renalysis data to point locations
 library(interdecis)
 point <- cbind(lon = -8, lat = 52)
 
-tavg.eobs.co <- extract_data(tavg.eobs, point)
-tavg.mera.co <- extract_data(tavg.mera, point)
-tavg.cordex.co <- extract_data(tavg.cordex, point)
+tavg.eobs.co <- extract_data(tavg.eobs, point, date1 = "2004-01-01", date2 = "2005-12-31")
+tavg.mera.co <- extract_data(tavg.mera, point, date1 = "2004-01-01", date2 = "2005-12-31")
+tavg.cordex.co <- extract_data(tavg.cordex, point, date1 = "2004-01-01", date2 = "2005-12-31")
+
+library(openair)
+
+
 ```
