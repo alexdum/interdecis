@@ -16,5 +16,5 @@ extract_data(file, points, date1, date2)
 \item{date2}{end date of the extracted time serie (e.g. '2015-12-31')}
 }
 \description{
-Return a data frame  the values of a raster brick object for the cell in which the points fall, and the time steps are stored as Date.
+Return a data frame with the values of a raster brick object for the cell in which the points fall, and the time steps stored as Date.
 }
