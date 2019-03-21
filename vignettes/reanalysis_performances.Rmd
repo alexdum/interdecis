@@ -37,7 +37,7 @@ raster::plot(tavg.mera[[1:2]])
 
 Extract renalysis data to point locations
 
-```{r t_eobs, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+```{r ext_eobs, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
 library(interdecis)
 point <- cbind(-8, 52)
 
