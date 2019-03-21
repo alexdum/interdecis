@@ -4,10 +4,13 @@
 #' @param points represented by a two column matrix
 #'
 #' @export
-extract_data <- function(file, points) {
+extract_data <- function(file, points ) {
 
   # file <- system.file("eobs/tg_ens_mean_0.1deg_reg_2004-2005_v19.0e.nc", package = "interdecisdata")
   # points <- cbind(-8, 52)
+
+  if (missing(file))  stop("You must add a raster brick to 'file' argument")
+  if (missing(points))  stop("You must add mtrix coordonates to 'points' argument")
 
   raster_brick <- raster::brick(file)
   ex <- t(raster::extract(raster_brick, points))
