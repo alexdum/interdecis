@@ -4,12 +4,16 @@
 \alias{extract_data}
 \title{Extract values from a raster brick object at the points location}
 \usage{
-extract_data(file, points)
+extract_data(file, points, date1, date2)
 }
 \arguments{
 \item{file}{the raster brick object}
 
 \item{points}{represented by a two column matrix}
+
+\item{date1}{start date for the extracted time serie (e.g. '2014-01-01')}
+
+\item{date2}{end date of the extracted time serie (e.g. '2015-12-31')}
 }
 \description{
 Return a data frame  the values of a raster brick object for the cell in which the points fall, and the time steps are stored as Date.
