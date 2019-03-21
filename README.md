@@ -13,6 +13,5 @@ Install development versions from github with:
 
 ``` r
 library(devtools) 
-
 install_github("alexdum/interdecis")
 ```
