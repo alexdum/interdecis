@@ -12,7 +12,8 @@ Depends: R (>= 3.0.1)
 Imports:
   raster (>= 2.8-19),
   sf (>= 0.7-3),
-  tibble (>= 2.1.1)
+  tibble (>= 2.1.1),
+  openair (>= 2.6-1)
 Remotes: 
   github::SantanderMetGroup/R_VALUE
 Suggests: knitr, rmarkdown
