@@ -9,6 +9,4 @@ With the help of the **interdecis** package, it can be documented the limits and
 Installing
 ----------
 
-Install development versions from github with
-
-library(devtools) install\_github("alexdum/interdecis")
+Install development versions from github with:

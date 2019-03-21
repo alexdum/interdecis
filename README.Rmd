@@ -22,7 +22,11 @@ With the help of the **interdecis** package, it can be documented the limits and
 
 ## Installing
 
-Install development versions from github with
+Install development versions from github with:
 
+```{r eval=FALSE, include=FALSE}
 library(devtools)
 install_github("alexdum/interdecis")
+```
+
+
