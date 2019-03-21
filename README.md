@@ -10,3 +10,7 @@ Installing
 ----------
 
 Install development versions from github with:
+
+library(devtools)
+
+install\_github("alexdum/interdecis")
