@@ -15,7 +15,7 @@ Imports:
   openair (>= 2.6-1),
   dplyr,
   tidyr,
-  magitrr (>= 1.5)
+  magrittr (>= 1.5)
 Remotes: 
   github::SantanderMetGroup/R_VALUE
 Suggests: knitr, rmarkdown
