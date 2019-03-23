@@ -4,17 +4,18 @@ Title: Intercomparison Tools of Reanalyses Datasets
 Authors@R: c(person("Alexandru", "Dumitrescu", role = c("aut", "cre"), email = "alexandru.dumitrescu@gmail.com"))
 Maintainer: Alexandru Dumitresc <alexandru.dumitrescu@gmail.com>
 Description: Interdecis is an open-source software, stand-alone and designed in R with capabilities to analyse the various climatic datasets performance using as reference E-OBS gridded dataset and ERA5 reanalysis product.
-Version: 0.0.002
+Version: 0.0.03
 License: GPL-2
 Encoding: UTF-8
 LazyData: true
 Depends: R (>= 3.0.1)
 Imports:
+  ncdf4 (>= 1.16.1),
   raster (>= 2.8-19),
   tibble (>= 2.1.1),
   openair (>= 2.6-1),
-  dplyr,
-  tidyr,
+  dplyr (>= 0.8.0.1),
+  tidyr (>= 0.8.3),
   magrittr (>= 1.5)
 Remotes: 
   github::SantanderMetGroup/R_VALUE
