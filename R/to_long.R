@@ -17,7 +17,7 @@ to_long <- function(reference, estimates) {
   dfs.est <- lapply(estimates, get)
   names(dfs.est) <- estimates
 
-  # join all lists
+  # join all lists by date
   tab.join <- Reduce(function(...) dplyr::left_join(..., by = "date"), c(dfs.ref, dfs.est))
   names(tab.join)[2:ncol(tab.join)] <- names(c(dfs.ref, dfs.est))
 
