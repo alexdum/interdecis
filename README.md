@@ -9,7 +9,7 @@ With the help of the **interdecis** package, it can be documented the limits and
 Installing
 ----------
 
-Install development versions from github with:
+Install the development versions from github with:
 
 ``` r
 library(devtools) 
