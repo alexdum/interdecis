@@ -2,3 +2,4 @@
 ^\.Rproj\.user$
 literature
 ^README.Rmd
+.DS_store
