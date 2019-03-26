@@ -1,0 +1,512 @@
+ex.tavg.merra <- data.frame(date = as.Date(substr(rownames(ex.tavg.mera),1, 11), "X%Y.%m.%d"), tavg = ex.tavg.mera - 273.5)
+index.amountFreqGE
+deseason.VALUE
+index.trend
+library(R.VALUE)
+index.trend(ex.tavg.merra$tavg, ex.tavg.merra$date)
+index.trend(ex.tavg.merra$tavg, ex.tavg.merra$date, output = c("coef", "sig"))
+index.trend(ex.tavg.merra$tavg, ex.tavg.merra$date, output = c("sig"))
+index.trend(ex.tavg.merra$tavg, ex.tavg.merra$date, output = c("coef"))
+index.trend(ex.tavg.eobs$tavg, ex.tavg.eobs$date, output = c("coef"))
+R.VALUE::index.trend(ex.tavg.merra$tavg, ex.tavg.merra$date, output = c("coef"))
+R.VALUE::index.trend(ex.tavg.eobs$tavg, ex.tavg.eobs$date, output = c("coef"))
+tavg.eobs <- raster::stack(system.file("eobs/tg_ens_mean_0.1deg_reg_2004-2005_v19.0e.nc", package = "interdecisdata"))
+tavg.mera <- raster::brick(system.file("mera/mera_t2m_daily_2004_2005.nc", package = "interdecisdata"))
+plot(tavg.mera[[1:4]])
+co <- cbind(-8, 52)
+ex.tavg.eobs <- t(raster::extract(tavg.eobs, co))
+ex.tavg.eobs <- data.frame(date = as.Date(rownames(ex.tavg.eobs), "X%Y.%m.%d"), tavg = ex.tavg.eobs)
+ex.tavg.mera <- t(raster::extract(tavg.mera, co))
+ex.tavg.merra <- data.frame(date = as.Date(substr(rownames(ex.tavg.mera),1, 11), "X%Y.%m.%d"), tavg = ex.tavg.mera - 273.5)
+R.VALUE::index.trend(ex.tavg.merra$tavg, ex.tavg.merra$date, output = c("coef"))
+R.VALUE::index.trend(ex.tavg.eobs$tavg, ex.tavg.eobs$date, output = c("coef"))
+index.sd(ts)
+index.sd
+index.annual.cycle
+R.VALUE::index.annual.cycle(ex.tavg.merra$tavg, ex.tavg.merra$date)
+R.VALUE::index.annual.cycle(ex.tavg.eobs$tavg, ex.tavg.eobs$date)
+ex.tavg.eobs$tavg
+R.VALUE::index.annual.cycle(ex.tavg.eobs$tavg, ex.tavg.eobs$date)
+R.VALUE::index.annual.cycle(ex.tavg.merra$tavg, ex.tavg.merra$date)
+index.sum
+measure.bias.rel
+file <- system.file("eobs/tg_ens_mean_0.1deg_reg_2004-2005_v19.0e.nc", package = "interdecisdata")
+file
+raster_brick <- raster::brick(file)
+name_components <- file %>% basename %>% str_split('_')
+library(magrittr)
+name_components <- file %>% basename %>% str_split('_')
+name_components <- file %>% basename
+name_components
+file <- system.file("eobs/tg_ens_mean_0.1deg_reg_2004-2005_v19.0e.nc", package = "interdecisdata")
+points <- cbind(-8, 52)
+file <- system.file("eobs/tg_ens_mean_0.1deg_reg_2004-2005_v19.0e.nc", package = "interdecisdata")
+points <- cbind(-8, 52)
+raster_brick <- raster::brick(file)
+ex <- extract(raster_brick, points)
+ex
+raster_brick <- raster::brick(file)
+ex <- extract(raster_brick, points)
+points <- cbind(-8, 52)
+ex <- raster::extract(raster_brick, points)
+ex <- t(raster::extract(raster_brick, points))
+head(ex)
+dates <- as.Date(substr(rownames(ex), 2,10))
+substr(rownames(ex), 2,10)
+dates <- as.Date(substr(rownames(ex), 2,11))
+dates <- as.Date(substr(rownames(ex), 2,11),"%Y.%m.%d")
+tibble::tibble(date = dates,  value = ex)
+tibble::tibble(date = dates,  value = round(ex, 1))
+?tibble
+tibble::tibble(date = dates,  value = round(ex[,1:ncol(ex)))
+}
+round(ex[,1:ncol(ex)]
+ex[,1:ncol(ex)]
+tibble::tibble(date = dates,  value = round(ex[,1:ncol(ex)],1))
+?extract
+devtools::document()
+install.packages("roxygen2")
+devtools::document()
+knitr::opts_chunk$set(
+collapse = TRUE,
+comment = "#>"
+)
+tavg.eobs <- raster::stack(system.file("eobs/tg_ens_mean_0.1deg_reg_2004-2005_v19.0e.nc", package = "interdecisdata"))
+library(raster)
+tavg.mera <- stack(system.file("mera/tg_ens_mean_0.1deg_reg_2004-2005_v19.0e.nc", package = "interdecisdata"))
+tavg.eobs <- raster::stack(system.file("eobs/tg_ens_mean_0.1deg_reg_2004-2005_v19.0e.nc", package = "interdecisdata"))
+tavg.mera <- raster::stack(system.file("mera/tg_ens_mean_0.1deg_reg_2004-2005_v19.0e.nc", package = "interdecisdata"))
+tavg.mera <- raster::stack(system.file("mera_t2m_daily_2004_2005.nc", package = "interdecisdata"))
+tavg.mera <- raster::stack(system.file("mera/mera_t2m_daily_2004_2005.nc", package = "interdecisdata"))
+plot(mera[[1:2]])
+plot(tavg.mera[[1:2]])
+devtools::install()
+devtools::document()
+devtools::install()
+library(interdecis)
+knitr::opts_chunk$set(
+collapse = TRUE,
+comment = "#>"
+)
+tavg.eobs <- raster::stack(system.file("eobs/tg_ens_mean_0.1deg_reg_2004-2005_v19.0e.nc", package = "interdecisdata"))
+tavg.mera <- raster::stack(system.file("mera/mera_t2m_daily_2004_2005.nc", package = "interdecisdata"))
+plot(tavg.mera[[1:2]])
+devtools::install()
+detach("package:interdecis", unload=TRUE)
+remove.packages("interdecis")
+detach("package:interdecis", unload=TRUE)
+devtools::install()
+library(interdecis)
+devtools::build_vignettes()
+devtools::document()
+devtools::build_vignettes()
+devtools::install()
+devtools::build_vignettes()
+devtools::document()
+devtools::build_vignettes()
+install.packages(c("gstat", "highr", "pkgbuild", "robustbase"))
+install.packages("gstat")
+devtools::build()
+install.packages("~/Documents/clima/packages/interdecis_0.0.001.tar.gz", repos = NULL, type = "source")
+libraru(interdecis)
+library(interdecis)
+devtools::build()
+install.packages("~/Documents/clima/packages/interdecis_0.0.001.tar.gz", repos = NULL, type = "source")
+detach("package:interdecis", unload=TRUE)
+library("interdecis", lib.loc="/Library/Frameworks/R.framework/Versions/3.5/Resources/library")
+devtools::build()
+detach("package:interdecis", unload=TRUE)
+install.packages("~/Documents/clima/packages/interdecis_0.0.001.tar.gz", repos = NULL, type = "source")
+library("interdecis", lib.loc="/Library/Frameworks/R.framework/Versions/3.5/Resources/library")
+point <- cbind(-8, 52)
+library(interdecis)
+tavg.mera.co <- extract_data(tavg.mera, point)
+tavg.mera <- raster::stack(system.file("mera/mera_t2m_daily_2004_2005.nc", package = "interdecisdata"))
+tavg.mera.co <- extract_data(tavg.mera, point)
+devtools::document()
+era5 <- raster::stack(system.file("era5/era5_ws10m_daily_2004_2005.nc"))
+era5 <- raster::stack(system.file("era5/era5_ws10m_daily_2004_2005.nc"),package = "interdecisdata")
+era5 <- raster::stack(system.file("era5/era5_ws10m_daily_2004_2005.nc"),package = "interdecisdata"))
+era5 <- raster::stack(system.file("era5/era5_ws10m_daily_2004_2005.nc",package = "interdecisdata"))
+show(era5)
+era5 <- raster::stack(system.file("era5/era5_ws10m_daily_2004_2005.nc",package = "interdecisdata"))
+devtools::document()
+git init
+file <- system.file("eobs/tg_ens_mean_0.1deg_reg_2004-2005_v19.0e.nc", package = "interdecisdata")
+points <- cbind(-8, 52)
+raster_brick <- raster::brick(file)
+ex <- t(raster::extract(raster_brick, points))
+# compute dates
+dates <- as.Date(substr(rownames(ex), 2,11),"%Y.%m.%d")
+tab <- tibble::tibble(date = dates, value = round(ex[,1:ncol(ex)],1))
+install_github("alexdum/interdecis")
+tab
+dim(tab)
+tail(tab)
+tab <- data.frame(date = dates, value = round(ex[,1:ncol(ex)],1))
+tab
+devtools::install()
+devtools::document()
+devtools::install()
+devtools::document()
+devtools::install()
+devtools::document()
+devtools::install()
+devtools::document()
+devtools::install()
+devtools::document()
+devtools::install()
+devtools::document()
+devtools::install()
+pkgdown::build_site()
+install.packages("pkgdown")
+?install.package
+?install.packages
+install.packages("interdecisdata", repos = "193.26.129.60", type = "source")
+install.packages("interdecisdata", repos = "http://193.26.129.60", type = "source")
+install.packages("interdecisdata/anm_maps", repos = "http://193.26.129.60", type = "source")
+install.packages("interdecisdata", repos = "http://193.26.129.60/anm_maps", type = "source")
+install.packages("interdecisdata", repos = "http://193.26.129.60/anm_maps/", type = "source")
+install.packages("~/Documents/clima/packages/interdecis_0.0.001.tar.gz", repos = NULL, type = "source")
+install.packages("http://193.26.129.60/anm_maps/interdecisdata_0.0.001.tar.gz", repos = NULL, type = "source")
+install.packages("robustbase")
+install.packages(c("gstat", "recipes", "robustbase"))
+-11.1875 - -11.0625
+tavg.eobs <- raster::stack(system.file("eobs/tg_ens_mean_0.1deg_reg_2004-2005_v19.0e.nc", package = "interdecisdata"))
+```{r t_mera, echo=TRUE, fig.height=4, fig.width=8, message=FALSE, warning=FALSE, paged.print=FALSE}
+tavg.mera <- raster::stack(system.file("mera/mera_t2m_daily_2004_2005.nc", package = "interdecisdata"))
+raster::plot(tavg.mera[[1:2]])
+tavg.eobs.co <- extract_data(tavg.eobs, point)
+tavg.mera.co <- extract_data(tavg.mera, point)
+point <- cbind(-8, 52)
+tavg.eobs.co <- extract_data(tavg.eobs, point)
+tavg.mera.co <- extract_data(tavg.mera, point)
+library(interdecis)
+if exists(point)
+if (exists(point))
+exists(point)
+exists("points")
+if(!exists("points"))
+next()
+if(!exists("points")) next
+if(!exists("points")) "Add coordinates"
+if(exists("points")) "Add coordinates"
+if(!exists("points")) "You must sdd coordinates"
+read.table()
+read.table
+library(interdecis)
+tavg.eobs.co <- extract_data(tavg.eobs, point)
+tavg.mera.co <- extract_data(tavg.mera, point)
+tavg.mera <- raster::stack(system.file("eurocordex/tas_EUR-11_ECMWF-ERAINT_evaluation_domeniu.mic_r1i1p1_SMHI-RCA4_v1_day_20040101-20051231.nc", package = "interdecisdata"))
+tavg.cordex<- raster::stack(system.file("eurocordex/tas_EUR-11_ECMWF-ERAINT_evaluation_domeniu.mic_r1i1p1_SMHI-RCA4_v1_day_20040101-20051231.nc", package = "interdecisdata"))
+raster::plot(tavg.cordex[[1:2]])
+tavg.mera <- raster::stack(system.file("mera/mera_t2m_daily_2004_2005.nc", package = "interdecisdata"))
+raster::plot(tavg.mera[[1:2]])
+tavg.cordex.co <- extract_data(tavg.cordex, point)
+library(interdecis)
+point <- cbind(lon = -8, lat = 52)
+tavg.eobs.co <- extract_data(tavg.eobs, point)
+tavg.eobs <- raster::stack(system.file("eobs/tg_ens_mean_0.1deg_reg_2004-2005_v19.0e.nc", package = "interdecisdata"))
+tavg.eobs.co <- extract_data(tavg.eobs, point)
+tavg.mera.co <- extract_data(tavg.mera, point)
+tavg.cordex.co <- extract_data(tavg.cordex, point)
+tavg.cordex.co
+if (missing(file))  stop("You must add a raster brick to 'file' argument")
+file <- system.file("eurocordex/eurocordex/tas_EUR-11_ECMWF-ERAINT_evaluation_domeniu.mic_r1i1p1_SMHI-RCA4_v1_day_20040101-20051231.nc", package = "interdecisdata")
+points <- cbind(-8, 52)
+if (missing(file))  stop("You must add a raster brick to 'file' argument")
+if (missing(points))  stop("You must add mtrix coordonates to 'points' argument")
+raster_brick <- raster::brick(file)
+file <- system.file("eurocordex/tas_EUR-11_ECMWF-ERAINT_evaluation_domeniu.mic_r1i1p1_SMHI-RCA4_v1_day_20040101-20051231.nc", package = "interdecisdata")
+raster_brick <- raster::brick(file)
+ex <- t(raster::extract(raster_brick, points))
+ex
+date1 <- "2014-01-01
+date1 <- "2014-01-01"
+date2 <- "2015-12-31"
+raster_brick <- raster::brick(file)
+ex <- t(raster::extract(raster_brick, points))
+# compute dates
+dates <- seq(as.Date(date1), as.Date(date2), by = "days")
+tab <- tibble::tibble(date = dates, value = round(ex[,1:ncol(ex)],1))
+dim(ex)
+# compute dates
+dates <- seq(as.Date(date1), as.Date(date2), by = "days")
+length(dates)
+date1 <- "2014-01-01"
+date2 <- "2015-12-31"
+# compute dates
+dates <- seq(as.Date(date1), as.Date(date2), by = "days")
+dates
+tavg.eobs.co <- extract_data(tavg.eobs, point)
+dim(tavg.eobs)
+head(tavg.eobs)
+head(tavg.eobs.co)
+dim(tavg.eobs.co)
+as.Date(date1)
+as.Date(date2)
+date1 <- "2004-01-01"
+date2 <- "2005-12-31"
+raster_brick <- raster::brick(file)
+ex <- t(raster::extract(raster_brick, points))
+# compute dates
+dates <- seq(as.Date(date1), as.Date(date2), by = "days")
+tab <- tibble::tibble(date = dates, value = round(ex[,1:ncol(ex)],1))
+return(tab)
+tab
+length(dates)
+dim(ex)
+nrow(ex)
+if (length(dates) != nrow(ex))  stop("Length of days is different from the length othe extracted time serie")
+dates <- dates[-1]
+if (length(dates) != nrow(ex))  stop("Length of days is different from the length othe extracted time serie")
+library(interdecis)
+devtools::document()
+library(interdecis)
+tavg.eobs.co <- extract_data(tavg.eobs, point, date1 = "2004-01-01", date2 = "2005-12-31")
+tavg.mera.co <- extract_data(tavg.mera, point, date1 = "2004-01-01", date2 = "2005-12-31")
+tavg.cordex.co <- extract_data(tavg.cordex, point, date1 = "2004-01-01", date2 = "2005-12-31")
+tavg.cordex.co
+library(openair)
+install.packages("openair")
+devtools::document()
+?do
+by_cyl <- group_by(mtcars, cyl)
+library(dplyr)
+by_cyl <- group_by(mtcars, cyl)
+do(by_cyl, head(., 2))
+head(by_cyl,2)
+models <- by_cyl %>% do(mod = lm(mpg ~ disp, data = .))
+models
+models[1]
+models[[1]]
+str(models)
+summarise(models, rsq = summary(mod)$r.squared)
+devtools::document()
+install.packages(c("assertthat", "expm", "gstat", "mgcv", "polynom", "rlang", "robustbase", "zoo"))
+tavg.mera <- raster::stack(system.file("mera/mera_t2m_daily_2004_2005.nc", package = "interdecisdata"))
+raster::plot(tavg.mera[[1:2]])
+tavg.cordex<- raster::stack(system.file("eurocordex/tas_EUR-11_ECMWF-ERAINT_evaluation_domeniu.mic_r1i1p1_SMHI-RCA4_v1_day_20040101-20051231.nc", package = "interdecisdata"))
+raster::plot(tavg.cordex[[1:2]])
+library(interdecis)
+point <- cbind(lon = -8, lat = 52)
+tavg.eobs.co <- extract_data(tavg.eobs, point, date1 = "2004-01-01", date2 = "2005-12-31")
+tavg.mera.co <- extract_data(tavg.mera, point, date1 = "2004-01-01", date2 = "2005-12-31")
+tavg.cordex.co <- extract_data(tavg.cordex, point, date1 = "2004-01-01", date2 = "2005-12-31")
+?openair::modStats
+data(mydata)
+library(openair)
+head(mydata)
+str(mydata)
+head(tavg.eobs.co)
+library(dplyr)
+?join_all
+?join_left
+?plyr::join_left
+?dplyr::left_join
+tavg.join<- plyr::join_all(list(tavg.eobs.co,tavg.mera.co,tavg.cordex.co), by = 'date', type = 'full' )
+head(tavg.join)
+head(tavg.mera)
+head(tavg.mera.co)
+head(tavg.eobs.co)
+head(tavg.cordex.co)
+?plyr::join_al
+?plyr::join_all
+tavg.join <- plyr::join_all(list(tavg.eobs.co,tavg.mera.co,tavg.cordex.co), type = 'full' )
+head(tavg.join)
+tavg.join <- plyr::join_all(list(tavg.eobs.co,tavg.mera.co,tavg.cordex.co), by = 'date', type = 'full' )
+list(tavg.eobs.co,tavg.mera.co,tavg.cordex.co)
+tavg.join <- plyr::join_all(list(tavg.eobs.co,tavg.mera.co,tavg.cordex.co),
+by = 'date', type = 'full' )
+head(tavg.join)
+tail(tavg.value)
+tail(tavg.join)
+tavg.join <- plyr::join_all(list(tavg.eobs.co,tavg.mera.co,tavg.cordex.co),
+by = 'date', type = 'left' )
+install.packages(c("assertthat", "expm", "gstat", "mgcv", "polynom", "rlang", "robustbase", "zoo"))
+tavg.join <- dplyr::left_join(list(tavg.eobs.co,tavg.mera.co,tavg.cordex.co),
+by = 'date', type = 'left' )
+file.lists <- list(tavg.eobs.co,tavg.mera.co,tavg.cordex.co)
+dfs<- list(tavg.eobs.co,tavg.mera.co,tavg.cordex.co)
+tavg.join <- Reduce(function(...) left_join(..., by = "date"), dfs)
+head(tavg.join)
+tavg.join <- Reduce(function(...) dplyr::left_join(..., by = "date"), dfs)
+names(dfs)
+str(dfs)
+library(rlang)
+install.packages("rlang")
+library(rlang)
+UQS
+tavg.eobs <- raster::stack(system.file("eobs/tg_ens_mean_0.1deg_reg_2004-2005_v19.0e.nc", package = "interdecisdata"))
+tavg.mera <- raster::stack(system.file("mera/mera_t2m_daily_2004_2005.nc", package = "interdecisdata"))
+raster::plot(tavg.mera[[1:2]])
+tavg.cordex<- raster::stack(system.file("eurocordex/tas_EUR-11_ECMWF-ERAINT_evaluation_domeniu.mic_r1i1p1_SMHI-RCA4_v1_day_20040101-20051231.nc", package = "interdecisdata"))
+raster::plot(tavg.cordex[[1:2]])
+library(interdecis)
+point <- cbind(lon = -8, lat = 52)
+tavg.eobs.co <- extract_data(tavg.eobs, point, date1 = "2004-01-01", date2 = "2005-12-31")
+tavg.mera.co <- extract_data(tavg.mera, point, date1 = "2004-01-01", date2 = "2005-12-31")
+tavg.cordex.co <- extract_data(tavg.cordex, point, date1 = "2004-01-01", date2 = "2005-12-31")
+dfs <- list(tavg.eobs.co,tavg.mera.co,tavg.cordex.co)
+tavg.join <- Reduce(function(...) dplyr::left_join(..., by = "date"), dfs)
+?list
+dfs <- list(tavg.eobs.co,tavg.mera.co,tavg.cordex.co, all.names = T)
+names(dfs)
+dfs <- lapply(c("tavg.eobs.co", "tavg.mera.co", "cordex.co"), get) # This creates a list of the objects.
+dfs <- lapply(c("tavg.eobs.co", "tavg.mera.co", "tabg.cordex.co"), get) # This creates a list of the objects.
+dfs <- lapply(c("tavg.eobs.co", "tavg.mera.co", "tavg.cordex.co"), get) # This creates a list of the objects.
+head(dfs)
+# create list
+objs.vector <- c("tavg.eobs.co", "tavg.mera.co", "tavg.cordex.co")
+dfs <- lapply(objs.vector, get) # This creates a list of the objects.
+foo <- setnames(dfs, objs.vector)
+names(dfs) <- objs.vector)
+names(dfs) <- objs.vector
+# creates  list of the objects.
+objs.vector <- c("tavg.eobs.co", "tavg.mera.co", "tavg.cordex.co")
+dfs <- lapply(objs.vector, get)
+names(dfs) <- objs.vector
+tavg.join <- Reduce(function(...) dplyr::left_join(..., by = "date"), dfs)
+tavg.join
+names(dfs)
+?dplyr::left_join
+tavg.join <- Reduce(function(...) dplyr::left_join(..., by = "date", suffix = T), dfs)
+tavg.join <- Reduce(function(...) dplyr::left_join(..., by = "date", suffix = objs.vector), dfs)
+tavg.join <- Reduce(function(...) dplyr::left_join(..., by = "date", name = objs.vector), dfs)
+tavg.join
+tavg.join <- Reduce(function(...) dplyr::left_join(..., by = "date", keep = T), dfs)
+tavg.join
+names(tavg.join) <- objs.vector
+names(tavg.join)[2:ncol(tavg.join)] <- objs.vector
+tavg.join
+tavg.join <- Reduce(function(...) dplyr::left_join(..., by = "date"), dfs)
+names(tavg.join)[2:ncol(tavg.join)] <- objs.vector
+tavg.join
+tavg.long <- wide %>% tidyr::gather(date, value, -c(objs.vector))
+tavg.long <- tavg.join magrittr%>% tidyr::gather(date, value, -c(objs.vector))
+tavg.long <- tavg.join magrittr::%>% tidyr::gather(date, value, -c(objs.vector))
+library(magrittr)
+tavg.long <- tavg.join %>% tidyr::gather(date, value, -c(objs.vector))
+tavg.long
+-c(objs.vector)
+objs.vector
+tavg.long <- tavg.join %>% tidyr::gather(date, -c(objs.vector))
+tavg.long <- tavg.join %>% tidyr::gather(value, -c(objs.vector))
+tavg.long <- tavg.join %>% tidyr::gather(value, date -c(objs.vector))
+tavg.long <- tavg.join %>% tidyr::gather(value, date, -c(objs.vector))
+tabg.lo
+tavg.long
+?gather
+tavg.long <- tavg.join %>% tidyr::gather(value, objs.vector, -date,)
+tavg.long
+tavg.long <- tavg.join %>% tidyr::gather(value, objs.vector[2:length(objs.vector)], -date,)
+objs.vector[2:length(objs.vector)]
+tavg.long <- tavg.join %>% tidyr::gather(obs, objs.vector[2:length(objs.vector)], -date,)
+tavg.long <- tavg.join %>% tidyr::gather(obs, objs.vector, -date,)
+tavg.long
+tail(tavg.long)
+tavg.long <- tavg.join %>% tidyr::gather(obs, objs.vector[2:length(objs.vector)], -objs.vector[1],-date,)
+tavg.long <- tavg.join %>% tidyr::gather("obs", objs.vector[2:length(objs.vector)], -objs.vector[1],-date,)
+rlang::last_error()
+objs.vector[2:length(objs.vector)]
+tavg.long <- tavg.join %>% tidyr::gather(c("tavg.mera.co","tavg.cordex.co"), -objs.vector[1],-date,)
+tavg.long <- tavg.join %>% tidyr::gather(c("tavg.mera.co","tavg.cordex.co"), value,-date,)
+tavg.long <- tavg.join %>% tidyr::gather(c("tavg.mera.co","tavg.cordex.co"), "value",-date,)
+head(tavg.join)
+tavg.long <- tavg.join %>% tidyr::gather(value, -date,)
+tavg.long <- tavg.join %>% tidyr::gather(value, "tavg.eobs.co",-date,)
+head(tavg.long)
+tavg.long <- tavg.join %>% tidyr::gather(tavg.eobs.co, "values",-date,)
+tavg.long
+tavg.long <- tavg.join %>% tidyr::gather(tavg.eobs.co, "values",-date, -tavg.eobs.co)
+tavg.long
+tavg.long <- tavg.join %>%
+tidyr::gather(key = 'Model', value = 'mod', objs.vector[2:3])
+tavg.long
+tavg.long <- tavg.join %>%
+tidyr::gather(key = 'Model', value = 'mod', objs.vector[2:length(objs.vector)])
+tavg.long
+tavg.long <- tavg.join %>%
+tidyr::gather(key = 'Model', value = 'mod', objs.vector[2:length(objs.vector)]) %>%
+dplyr::rename(obs = objs.vector[1])
+head(tavg.long)
+# creates  list of the objects.
+objs.vector <- c("tavg.eobs.co", "tavg.mera.co", "tavg.cordex.co")
+dfs <- lapply(objs.vector, get)
+names(dfs) <- objs.vector
+tavg.join <- Reduce(function(...) dplyr::left_join(..., by = "date"), dfs)
+names(tavg.join)[2:ncol(tavg.join)] <- objs.vector
+tavg.long <- tavg.join %>%
+tidyr::gather(key = 'model', value = 'est', objs.vector[2:length(objs.vector)]) %>%
+dplyr::rename(obs = objs.vector[1])
+head(tavg.long)
+# convert to celsius
+tavg.mera.co$value <- tavg.mera.co$value -273.15
+tavg.cordex.co <- tavg.cordex.co - 273.15
+# creates  list of the objects.
+objs.vector <- c("tavg.eobs.co", "tavg.mera.co", "tavg.cordex.co")
+dfs <- lapply(objs.vector, get)
+names(dfs) <- objs.vector
+tavg.join <- Reduce(function(...) dplyr::left_join(..., by = "date"), dfs)
+names(tavg.join)[2:ncol(tavg.join)] <- objs.vector
+tavg.long <- tavg.join %>%
+tidyr::gather(key = 'model', value = 'est', objs.vector[2:length(objs.vector)]) %>%
+dplyr::rename(obs = objs.vector[1])
+openair::modStats(tavg.long)
+tavg.long <- tavg.join %>%
+tidyr::gather(key = 'model', value = 'mod', objs.vector[2:length(objs.vector)]) %>%
+dplyr::rename(obs = objs.vector[1])
+openair::modStats(tavg.long)
+openair::modStats(tavg.long, type = "model")
+tavg.cordex.co <- extract_data(tavg.cordex, point, date1 = "2004-01-01", date2 = "2005-12-31")
+tavg.cordex.co$value <- tavg.cordex.co$value - 273.15
+# creates  list of the objects.
+objs.vector <- c("tavg.eobs.co", "tavg.mera.co", "tavg.cordex.co")
+dfs <- lapply(objs.vector, get)
+names(dfs) <- objs.vector
+tavg.join <- Reduce(function(...) dplyr::left_join(..., by = "date"), dfs)
+names(tavg.join)[2:ncol(tavg.join)] <- objs.vector
+tavg.long <- tavg.join %>%
+tidyr::gather(key = 'model', value = 'mod', objs.vector[2:length(objs.vector)]) %>%
+dplyr::rename(obs = objs.vector[1])
+openair::modStats(tavg.long, type = "model")
+openair::modStats(tavg.long, type = c("model","year"))
+openair::TaylorDiagram(tavg.long)
+openair::TaylorDiagram(tavg.long,type = c("model","year"))
+head(mydata)
+library(openair)
+?TaylorDiagram
+head(mydata)
+openair::TaylorDiagram(tavg.long,type = c("model","year"))
+openair::TaylorDiagram(tavg.long,type = c("model"))
+str(tavg.long)
+tavg.long$model <- as.factor(tavg.long$model)
+openair::modStats(tavg.long, type = c("model","year"))
+openair::TaylorDiagram(tavg.long,type = c("model"))
+openair::TaylorDiagram(tavg.long,type = c("year"))
+openair::TaylorDiagram(mydata,type = c("year"))
+dat <- data.frame(date = mydata$date, obs = mydata$nox, mod = mydata$nox)
+openair::TaylorDiagram(dat,type = c("year"))
+tavg.long$date <- as.POSIXct(tavg.long$date)
+openair::modStats(tavg.long, type = c("model","year"))
+openair::TaylorDiagram(tavg.long,type = c("year"))
+# creates  list of the objects.
+objs.vector <- c("tavg.eobs.co", "tavg.mera.co", "tavg.cordex.co")
+dfs <- lapply(objs.vector, get)
+names(dfs) <- objs.vector
+tavg.join <- Reduce(function(...) dplyr::left_join(..., by = "date"), dfs)
+names(tavg.join)[2:ncol(tavg.join)] <- objs.vector
+tavg.long <- tavg.join %>%
+tidyr::gather(key = 'model', value = 'mod', objs.vector[2:length(objs.vector)]) %>%
+dplyr::rename(obs = objs.vector[1])
+openair::modStats(tavg.long, type = c("model","year"))
+openair::TaylorDiagram(tavg.long,type = c("year"))
+openair::TaylorDiagram(mydata = tavg.long,type = c("year"),)
+openair::TaylorDiagram(mydata = tavg.long,type = c("year"),obs = "obs", mod = "mod")
+openair::TaylorDiagram(mydata = tavg.long,type = c("months"), obs = "obs", mod = "mod")
+openair::TaylorDiagram(mydata = tavg.long,type = c("month"), obs = "obs", mod = "mod")
+str(tavg.long)
+scatterPlot(tavg.long)
+scatterPlot(tavg.long, x = "obs", y = "mod")
+scatterPlot(tavg.long, x = "obs", y = "mod", type = "model")
+install.packages(c("expm", "gstat", "Matrix", "mgcv", "openssl", "RcppArmadillo", "robustbase", "spatstat"))
