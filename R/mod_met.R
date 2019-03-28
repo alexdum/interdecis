@@ -7,15 +7,23 @@
 #' The data frame subsetting procedure is based on the \code{\link[openair]{cutData}} function (\pkg{openair}).
 #' @importFrom openair cutData
 #' @export
-mod_met <- function(obs = "obs", est = "est",
+mod_met <- function(data.i, obs = "obs", est = "est",
                    metrics = c("ME", "MAE", "RMSE", "COR"),
                     split = "default") {
 
+  data.sub <- cutData(data.i, split, ...)
 
-  ## root mean square error
+  if ("RMSE" %in% metrics) {
+    res.RMSE <- data.sub %>% dplyr::group_by(.dots = split) %>%
+      dplyr::do(RMSE(., est, obs))
+  } else {
+    res.RMSE <- NULL
+  }
+
+  ## root mean squared error
   RMSE <- function(x, est = "est", obs = "obs") {
-    x <- na.omit(x[, c(mod, obs)])
-    res <- mean((x[[mod]] - x[[obs]]) ^ 2) ^ 0.5
+    x <- na.omit(x[, c("est", "obs")])
+    res <- mean((x$est -x$obs)^2)^0.5
     data.frame(RMSE = res)
   }
 
