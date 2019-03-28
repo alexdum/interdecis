@@ -20,7 +20,7 @@ wide_to_long <- function(reference, estimates) {
   # join all lists by date
   tab.join <- Reduce(function(...) dplyr::left_join(..., by = "date"), c(dfs.ref, dfs.est))
   names(tab.join)[2:ncol(tab.join)] <- names(c(dfs.ref, dfs.est))
-
+  # transfotm to long
   tab.long <- tab.join %>%
     tidyr::gather(key = 'model', value = 'est', estimates) %>%
     dplyr::rename(obs = reference)
