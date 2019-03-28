@@ -5,8 +5,18 @@
 \title{Compute model evaluation metrics}
 \usage{
 mod_met(obs = "obs", est = "est", metrics = c("ME", "MAE", "RMSE",
-  "COR"))
+  "COR"), split = "default")
+}
+\arguments{
+\item{obs}{Name of the variable in the object resulted from \code{\link{wide_to_long}} representing the referenece data.}
+
+\item{est}{Name of the variable in the object resulted from \code{\link{wide_to_long}} the estimates that are analysed.}
+
+\item{metrics}{The indicators to be computed. See Details section with de description of which indicator. The spliting data
+frame is based on the \code{link[openair]{cutData}} function (\code{link[openair]} package).}
+
+\item{split}{Character or vector of characters containing values to divide into groups in order to compute the metrics.}
 }
 \description{
-Compute model evaluation metrics to asses the agreement between observed data and various reanalysis datasets
+Compute model evaluation metrics to asses the agreement between observed data and various reanalysis datasets.
 }

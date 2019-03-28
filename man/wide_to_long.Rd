@@ -7,9 +7,9 @@
 wide_to_long(reference, estimates)
 }
 \arguments{
-\item{reference}{character with the name of the reference data object obtained with \code{\link{extract_data}} function.}
+\item{reference}{Character with the name of the reference data object obtained with \code{\link{extract_data}} function.}
 
-\item{estimates}{character vectors with the name of the objects containing the estimates that are analysed, obtained with \code{\link{extract_data}} function.}
+\item{estimates}{Character vectors with the name of the objects containing the estimates that are analysed, obtained with \code{\link{extract_data}} function.}
 }
 \description{
 Return a tibble data frame in long format, with the values of reference and analysed datasets, which can be used to compute models evaluation metrics
