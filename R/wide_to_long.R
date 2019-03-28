@@ -22,7 +22,7 @@ wide_to_long <- function(reference, estimates) {
   names(tab.join)[2:ncol(tab.join)] <- names(c(dfs.ref, dfs.est))
 
   tab.long <- tab.join %>%
-    tidyr::gather(key = 'model', value = 'mod', estimates) %>%
+    tidyr::gather(key = 'model', value = 'est', estimates) %>%
     dplyr::rename(obs = reference)
 
   return(tab.long)
