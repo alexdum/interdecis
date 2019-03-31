@@ -8,8 +8,14 @@
 #' @importFrom openair cutData
 #' @export
 mod_met <- function(data.i, obs = "obs", est = "est",
-                   metrics = c("ME", "MAE", "RMSE", "COR"),
+                    metrics = c("ME", "MAE", "RMSE", "COR"),
                     split = "default") {
+  ## root mean squared error
+  RMSE <- function(x, est = "est", obs = "obs") {
+    x <- na.omit(x[, c("est", "obs")])
+    res <- mean((x$est - x$obs)^2)^0.5
+    data.frame(RMSE = res)
+  }
 
   data.sub <- cutData(data.i, split)
 
@@ -20,12 +26,7 @@ mod_met <- function(data.i, obs = "obs", est = "est",
     RMSE.ind <- NULL
   }
 
-  ## root mean squared error
-  RMSE <- function(x, est = "est", obs = "obs") {
-    x <- na.omit(x[, c("est", "obs")])
-    res <- mean((x$est -x$obs)^2)^0.5
-    data.frame(RMSE = res)
-  }
+
 
   ## merge indicators
   results <- list( RMSE.ind )
