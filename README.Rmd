@@ -58,7 +58,7 @@ Load EUROCORDEX tas dataset
 
 ```{r t_eurocordex, echo=TRUE, fig.height=4, fig.width=8, message=FALSE, warning=FALSE, paged.print=FALSE}
 tavg.cordex <- raster::stack(system.file("eurocordex/tas_EUR-11_ECMWF-ERAINT_evaluation_domeniu.mic_r1i1p1_SMHI-RCA4_v1_day_20040101-20051231.nc", package = "interdecisdata"))
-raster::plot(tavg.cordex[[1:2]])
+# raster::plot(tavg.cordex[[1:2]])
 ```
 
 Extract renalysis data to point locations (lon = -8, lat = 52)
@@ -69,7 +69,11 @@ point <- cbind(lon = -8, lat = 52)
 
 tavg.eobs.co <- extract_data(tavg.eobs, point, date1 = "2004-01-01", date2 = "2005-12-31")
 tavg.mera.co <- extract_data(tavg.mera, point, date1 = "2004-01-01", date2 = "2005-12-31")
+# convert to Celsius
+tavg.mera.co$value <- tavg.mera.co$value - 273.15
 tavg.cordex.co <- extract_data(tavg.cordex, point, date1 = "2004-01-01", date2 = "2005-12-31")
+# convert to Celsius
+tavg.cordex.co$value <- tavg.cordex.co$value - 273.15
 ```
 
 
