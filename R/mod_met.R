@@ -10,7 +10,16 @@
 mod_met <- function(data.i, obs = "obs", est = "est",
                     metrics = c("ME", "MAE", "RMSE", "COR"),
                     split = "default") {
-  ## root mean squared error
+
+
+  # mean error
+  ME <- function(x, est = "est", obs = "obs") {
+    x <- na.omit(x[, c("est", "obs")])
+    res <- mean(x$est - x$obs)
+    data.frame(ME = res)
+  }
+
+  # root mean squared error
   RMSE <- function(x, est = "est", obs = "obs") {
     x <- na.omit(x[, c("est", "obs")])
     res <- mean((x$est - x$obs)^2)^0.5
@@ -18,6 +27,13 @@ mod_met <- function(data.i, obs = "obs", est = "est",
   }
 
   data.sub <- cutData(data.i, split)
+
+  if ("ME" %in% metrics) {
+    ME.ind <- data.sub %>% dplyr::group_by(.dots = split) %>%
+      dplyr::do(ME(., est, obs))
+  } else {
+    ME.ind <- NULL
+  }
 
   if ("RMSE" %in% metrics) {
     RMSE.ind <- data.sub %>% dplyr::group_by(.dots = split) %>%
@@ -29,7 +45,7 @@ mod_met <- function(data.i, obs = "obs", est = "est",
 
 
   ## merge indicators
-  results <- list( RMSE.ind )
+  results <- list(ME.ind, RMSE.ind )
   results <- Reduce(function(x, y, by = split) merge(x, y, by = split, all = TRUE), results)
 
   return(results)
