@@ -7,9 +7,10 @@
 #' The data frame subsetting procedure is based on the \code{\link[openair]{cutData}} function (\pkg{openair}).
 #' @importFrom openair cutData
 #' @export
+
 mod_met <- function(data.i, obs = "obs", est = "est",
                     metrics = c("ME", "MAE", "RMSE", "COR"),
-                    split = "default") {
+                    split = c("model","year")) {
 
 
   # mean error
@@ -17,6 +18,13 @@ mod_met <- function(data.i, obs = "obs", est = "est",
     x <- na.omit(x[, c("est", "obs")])
     res <- mean(x$est - x$obs)
     data.frame(ME = res)
+  }
+
+  # mean absolute error
+  MAE <- function(x, est = "est", obs = "obs") {
+    x <- na.omit(x[, c("est", "obs")])
+    res <- mean(abs(x$est - x$obs))
+    data.frame(MAE = res)
   }
 
   # root mean squared error
@@ -35,6 +43,13 @@ mod_met <- function(data.i, obs = "obs", est = "est",
     ME.ind <- NULL
   }
 
+  if ("MAE" %in% metrics) {
+    MAE.ind <- data.sub %>% dplyr::group_by(.dots = split) %>%
+      dplyr::do(MAE(., est, obs))
+  } else {
+    MAE.ind <- NULL
+  }
+
   if ("RMSE" %in% metrics) {
     RMSE.ind <- data.sub %>% dplyr::group_by(.dots = split) %>%
       dplyr::do(RMSE(., est, obs))
@@ -44,10 +59,12 @@ mod_met <- function(data.i, obs = "obs", est = "est",
 
 
 
-  ## merge indicators
-  results <- list(ME.ind, RMSE.ind )
-  results <- Reduce(function(x, y, by = split) merge(x, y, by = split, all = TRUE), results)
+  # merge indicators
+  accuracy <- list(ME.ind, MAE.ind, RMSE.ind)
+  # remove empty lists
+  accuracy <- accuracy[which(!sapply(accuracy, is.null))]
+  accuracy <- Reduce(function(x, y, by = split) merge(x, y, by = split, all = TRUE), accuracy)
 
-  return(results)
+  return(accuracy)
 
 }
