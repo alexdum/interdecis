@@ -5,6 +5,17 @@
 #' @param metrics The indicators to be computed. See Details section with de description of which indicator.
 #' @param split Character or vector of characters containing values to divide into groups in order to compute the metrics.
 #' The data frame subsetting procedure is based on the \code{\link[openair]{cutData}} function (\pkg{openair}).
+#' @details The model evaluation statistics indicators implemented here are:
+#' \itemize{
+#'
+#' \item \eqn{ME}, mean error;
+#'
+#' \item \eqn{MAE}, mean absolute error;
+#'
+#' \item \eqn{RMSE}, root mean squared error;
+#'
+#' \item \eqn{COR.p}, Pearson correlation coefficient.
+#' }
 #' @importFrom openair cutData
 #' @export
 
