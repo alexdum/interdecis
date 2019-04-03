@@ -29,4 +29,45 @@ library(devtools)
 install_github("alexdum/interdecis")
 ```
 
+## Brief examples
+
+As an example, we will use air temperature data available (E-OBS, MERA, EUROCORDEX) from package _interdecisdata_; this package can be installed with:
+
+```{r interdecis, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE, eval=FALSE}
+install.packages("http://193.26.129.60/anm_maps/interdecisdata_0.0.001.tar.gz", repos = NULL, type = "source")
+```
+
+### Extract data
+
+
+Load EOBS air temperature dataset
+
+```{r t_eobs, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+
+tavg.eobs <- raster::stack(system.file("eobs/tg_ens_mean_0.1deg_reg_2004-2005_v19.0e.nc", package = "interdecisdata"))
+```
+
+Load MERA 2m air temperature dataset
+
+```{r t_mera, echo=TRUE, fig.height=4, fig.width=8, message=FALSE, warning=FALSE, paged.print=FALSE}
+tavg.mera <- raster::stack(system.file("mera/mera_t2m_daily_2004_2005.nc", package = "interdecisdata"))
+raster::plot(tavg.mera[[1:2]])
+```
+
+Load EUROCORDEX tas dataset
+
+```{r t_eurocordex, echo=TRUE, fig.height=4, fig.width=8, message=FALSE, warning=FALSE, paged.print=FALSE}
+tavg.cordex <- raster::stack(system.file("eurocordex/tas_EUR-11_ECMWF-ERAINT_evaluation_domeniu.mic_r1i1p1_SMHI-RCA4_v1_day_20040101-20051231.nc", package = "interdecisdata"))
+raster::plot(tavg.cordex[[1:2]])
+```
+
+Extract renalysis data to point locations (lon = -8, lat = 52)
+
+```{r ext_eobs, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+library(interdecis)
+point <- cbind(lon = -8, lat = 52)
+
+tavg.eobs.co <- extract_data(tavg.eobs, point, date1 = "2004-01-01", date2 = "2005-12-31")
+tavg.mera.co <- extract_data(tavg.mera, point, date1 = "2004-01-01", date2 = "2005-12-31")
+tavg.cordex.co <- extract_data(tavg.cordex, point, date1 = "2004-01-01", date2 = "2005-12-31")
 

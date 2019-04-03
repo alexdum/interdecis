@@ -15,3 +15,50 @@ Install the development versions from github with:
 library(devtools) 
 install_github("alexdum/interdecis")
 ```
+
+Brief examples
+--------------
+
+As an example, we will use air temperature data available (E-OBS, MERA, EUROCORDEX) from package *interdecisdata*; this package can be installed with:
+
+``` r
+install.packages("http://193.26.129.60/anm_maps/interdecisdata_0.0.001.tar.gz", repos = NULL, type = "source")
+```
+
+### Extract data
+
+Load EOBS air temperature dataset
+
+``` r
+
+tavg.eobs <- raster::stack(system.file("eobs/tg_ens_mean_0.1deg_reg_2004-2005_v19.0e.nc", package = "interdecisdata"))
+```
+
+Load MERA 2m air temperature dataset
+
+``` r
+tavg.mera <- raster::stack(system.file("mera/mera_t2m_daily_2004_2005.nc", package = "interdecisdata"))
+raster::plot(tavg.mera[[1:2]])
+```
+
+![](README-t_mera-1.png)
+
+Load EUROCORDEX tas dataset
+
+``` r
+tavg.cordex<- raster::stack(system.file("eurocordex/tas_EUR-11_ECMWF-ERAINT_evaluation_domeniu.mic_r1i1p1_SMHI-RCA4_v1_day_20040101-20051231.nc", package = "interdecisdata"))
+raster::plot(tavg.cordex[[1:2]])
+```
+
+![](README-t_eurocordex-1.png)
+
+Extract renalysis data to point locations (lon = -8, lat = 52)
+
+``` r
+library(interdecis)
+point <- cbind(lon = -8, lat = 52)
+
+tavg.eobs.co <- extract_data(tavg.eobs, point, date1 = "2004-01-01", date2 = "2005-12-31")
+tavg.mera.co <- extract_data(tavg.mera, point, date1 = "2004-01-01", date2 = "2005-12-31")
+tavg.cordex.co <- extract_data(tavg.cordex, point, date1 = "2004-01-01", date2 = "2005-12-31")
+```
