@@ -8,7 +8,7 @@
 #' @details The model evaluation statistics indicators implemented here are:
 #' \itemize{
 #'
-#' \item \eqn{ME}" mean error;
+#' \item \eqn{ME}: mean error;
 #'
 #' \item \eqn{MAE}: mean absolute error;
 #'
