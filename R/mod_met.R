@@ -8,13 +8,13 @@
 #' @details The model evaluation statistics indicators implemented here are:
 #' \itemize{
 #'
-#' \item \eqn{ME}, mean error;
+#' \item \eqn{ME}" mean error;
 #'
-#' \item \eqn{MAE}, mean absolute error;
+#' \item \eqn{MAE}: mean absolute error;
 #'
-#' \item \eqn{RMSE}, root mean squared error;
+#' \item \eqn{RMSE}: root mean squared error;
 #'
-#' \item \eqn{COR.p}, Pearson correlation coefficient.
+#' \item \eqn{COR.p}: Pearson correlation coefficient.
 #' }
 #' @importFrom openair cutData
 #' @export
