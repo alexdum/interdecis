@@ -5,7 +5,7 @@
 \title{Compute model evaluation metrics}
 \usage{
 mod_met(data.i, obs = "obs", est = "est", metrics = c("ME", "MAE",
-  "RMSE", "COR"), split = "default")
+  "RMSE", "COR.p"), split = c("model", "year"))
 }
 \arguments{
 \item{obs}{Name of the variable in the object resulted from \code{\link{wide_to_long}} representing the referenece data.}
