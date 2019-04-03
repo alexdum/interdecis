@@ -9,7 +9,7 @@
 #' @export
 
 mod_met <- function(data.i, obs = "obs", est = "est",
-                    metrics = c("ME", "MAE", "RMSE", "COR"),
+                    metrics = c("ME", "MAE", "RMSE", "COR.p"),
                     split = c("model","year")) {
 
 
@@ -32,6 +32,13 @@ mod_met <- function(data.i, obs = "obs", est = "est",
     x <- na.omit(x[, c("est", "obs")])
     res <- mean((x$est - x$obs)^2)^0.5
     data.frame(RMSE = res)
+  }
+
+  # Pearson correlation coefficient
+  COR.p <- function(x, est = "est", obs = "obs") {
+    x <- na.omit(x[, c("est", "obs")])
+    res <- cor(x$est,x$obs, use = "pairwise.complete.obs")
+    data.frame(COR.p = res)
   }
 
   data.sub <- cutData(data.i, split)
@@ -57,10 +64,17 @@ mod_met <- function(data.i, obs = "obs", est = "est",
     RMSE.ind <- NULL
   }
 
+  if ("COR.p" %in% metrics) {
+    COR.p.ind <- data.sub %>% dplyr::group_by(.dots = split) %>%
+      dplyr::do(COR.p(., est, obs))
+  } else {
+    COR.p.ind <- NULL
+  }
+
 
 
   # merge indicators
-  accuracy <- list(ME.ind, MAE.ind, RMSE.ind)
+  accuracy <- list(ME.ind, MAE.ind, RMSE.ind, COR.p.ind)
   # remove empty lists
   accuracy <- accuracy[which(!sapply(accuracy, is.null))]
   accuracy <- Reduce(function(x, y, by = split) merge(x, y, by = split, all = TRUE), accuracy)
