@@ -38,15 +38,13 @@ Load MERA 2m air temperature dataset
 
 ``` r
 tavg.mera <- raster::stack(system.file("mera/mera_t2m_daily_2004_2005.nc", package = "interdecisdata"))
-raster::plot(tavg.mera[[1:2]])
+# raster::plot(tavg.mera[[1:2]])
 ```
-
-![](README-t_mera-1.png)
 
 Load EUROCORDEX tas dataset
 
 ``` r
-tavg.cordex<- raster::stack(system.file("eurocordex/tas_EUR-11_ECMWF-ERAINT_evaluation_domeniu.mic_r1i1p1_SMHI-RCA4_v1_day_20040101-20051231.nc", package = "interdecisdata"))
+tavg.cordex <- raster::stack(system.file("eurocordex/tas_EUR-11_ECMWF-ERAINT_evaluation_domeniu.mic_r1i1p1_SMHI-RCA4_v1_day_20040101-20051231.nc", package = "interdecisdata"))
 raster::plot(tavg.cordex[[1:2]])
 ```
 
@@ -61,4 +59,23 @@ point <- cbind(lon = -8, lat = 52)
 tavg.eobs.co <- extract_data(tavg.eobs, point, date1 = "2004-01-01", date2 = "2005-12-31")
 tavg.mera.co <- extract_data(tavg.mera, point, date1 = "2004-01-01", date2 = "2005-12-31")
 tavg.cordex.co <- extract_data(tavg.cordex, point, date1 = "2004-01-01", date2 = "2005-12-31")
+```
+
+### Compute model evaluation metrics
+
+Convert extracted data from wide to long format
+
+``` r
+tavg.long <- wide_to_long(reference = "tavg.eobs.co", estimates = c("tavg.mera.co", "tavg.cordex.co"))
+```
+
+Calculate indicators accuracy between E-OBS data and modelled data (EURO-CORDEX and MERA)
+
+``` r
+mod_met(tavg.long)
+#>            model year       ME      MAE     RMSE     COR.p
+#> 1 tavg.cordex.co 2004 272.4448 272.4448 272.4480 0.9458530
+#> 2 tavg.cordex.co 2005 272.3392 272.3392 272.3426 0.9492095
+#> 3   tavg.mera.co 2004 272.2740 272.2740 272.2752 0.9812536
+#> 4   tavg.mera.co 2005 272.2784 272.2784 272.2798 0.9818914
 ```
