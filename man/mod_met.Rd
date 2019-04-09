@@ -8,6 +8,8 @@ mod_met(dfs, obs = "obs", est = "est", metrics = c("ME", "MAE",
   "RMSE", "COR.p"), split = c("model", "year"))
 }
 \arguments{
+\item{dfs}{A data frame containing the fields date and extracted data.}
+
 \item{obs}{Name of the variable in the object resulted from \code{\link{wide_to_long}} representing the referenece data.}
 
 \item{est}{Name of the variable in the object resulted from \code{\link{wide_to_long}} with the estimates that are analysed.}
