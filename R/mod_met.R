@@ -17,6 +17,7 @@
 #' \item \eqn{COR.p}: Pearson correlation coefficient.
 #' }
 #' @importFrom openair cutData
+#' @importFromcstats cor na.omit
 #' @export
 
 mod_met <- function(data.i, obs = "obs", est = "est",
