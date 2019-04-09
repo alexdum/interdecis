@@ -20,7 +20,7 @@
 #' @importFromcstats cor na.omit
 #' @export
 
-mod_met <- function(data.i, obs = "obs", est = "est",
+mod_met <- function(dfs, obs = "obs", est = "est",
                     metrics = c("ME", "MAE", "RMSE", "COR.p"),
                     split = c("model","year")) {
 
@@ -53,7 +53,7 @@ mod_met <- function(data.i, obs = "obs", est = "est",
     data.frame(COR.p = res)
   }
 
-  data.sub <- cutData(data.i, split)
+  data.sub <- cutData(dfs, split)
 
   if ("ME" %in% metrics) {
     ME.ind <- data.sub %>% dplyr::group_by(.dots = split) %>%
