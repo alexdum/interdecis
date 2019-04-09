@@ -4,7 +4,7 @@
 \alias{mod_met}
 \title{Compute model evaluation metrics}
 \usage{
-mod_met(data.i, obs = "obs", est = "est", metrics = c("ME", "MAE",
+mod_met(dfs, obs = "obs", est = "est", metrics = c("ME", "MAE",
   "RMSE", "COR.p"), split = c("model", "year"))
 }
 \arguments{
