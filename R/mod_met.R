@@ -1,5 +1,6 @@
 #' Compute model evaluation metrics
 #' @description Compute model evaluation metrics to asses the agreement between observed data and various reanalysis datasets.
+#' @param dfs A data frame containing the fields date and extracted data.
 #' @param obs Name of the variable in the object resulted from \code{\link{wide_to_long}} representing the referenece data.
 #' @param est Name of the variable in the object resulted from \code{\link{wide_to_long}} with the estimates that are analysed.
 #' @param metrics The indicators to be computed. See Details section with de description of which indicator.
