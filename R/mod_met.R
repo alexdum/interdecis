@@ -19,6 +19,7 @@
 #' }
 #' @importFrom openair cutData
 #' @importFrom stats cor na.omit
+#' @importFrom dplyr do
 #' @export
 
 mod_met <- function(dfs, obs = "obs", est = "est",
@@ -58,28 +59,28 @@ mod_met <- function(dfs, obs = "obs", est = "est",
 
   if ("ME" %in% metrics) {
     ME.ind <- data.sub %>% dplyr::group_by(.dots = split) %>%
-      dplyr::do(ME(., est, obs))
+      do(ME(., est, obs))
   } else {
     ME.ind <- NULL
   }
 
   if ("MAE" %in% metrics) {
     MAE.ind <- data.sub %>% dplyr::group_by(.dots = split) %>%
-      dplyr::do(MAE(., est, obs))
+      do(MAE(., est, obs))
   } else {
     MAE.ind <- NULL
   }
 
   if ("RMSE" %in% metrics) {
     RMSE.ind <- data.sub %>% dplyr::group_by(.dots = split) %>%
-      dplyr::do(RMSE(., est, obs))
+      do(RMSE(., est, obs))
   } else {
     RMSE.ind <- NULL
   }
 
   if ("COR.p" %in% metrics) {
     COR.p.ind <- data.sub %>% dplyr::group_by(.dots = split) %>%
-      dplyr::do(COR.p(., est, obs))
+      do(COR.p(., est, obs))
   } else {
     COR.p.ind <- NULL
   }
