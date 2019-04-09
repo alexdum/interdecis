@@ -39,7 +39,7 @@ raster::plot(tavg.mera[[1:2]])
 
 Load EUROCORDEX tas dataset
 
-```{r t_mera, echo=TRUE, fig.height=4, fig.width=8, message=FALSE, warning=FALSE, paged.print=FALSE}
+```{r t_cordex, echo=TRUE, fig.height=4, fig.width=8, message=FALSE, warning=FALSE, paged.print=FALSE}
 tavg.cordex<- raster::stack(system.file("eurocordex/tas_EUR-11_ECMWF-ERAINT_evaluation_domeniu.mic_r1i1p1_SMHI-RCA4_v1_day_20040101-20051231.nc", package = "interdecisdata"))
 raster::plot(tavg.cordex[[1:2]])
 ```
