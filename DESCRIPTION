@@ -8,7 +8,7 @@ Version: 0.0.05
 License: GPL-2
 Encoding: UTF-8
 LazyData: true
-Depends: R (>= 3.5.3)
+Depends: R (>= 3.5)
 Imports:
   ncdf4 (>= 1.16.1),
   raster (>= 2.8-19),
